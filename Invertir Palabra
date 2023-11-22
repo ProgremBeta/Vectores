@@ -1,6 +1,7 @@
 //Taller Vectores
 //recursividad de caracteres que se inviertan y diga si es polinomial
-//inicio la bibloteca para calcular el tamaño de la lista
+//inicio la bibloteca string.h para calcular el tamaño de la lista
+
 #include<stdio.h>
 #include<string.h>
 
