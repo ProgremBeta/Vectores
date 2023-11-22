@@ -1,0 +1,32 @@
+//Taller Vectores
+//recursividad de caracteres que se inviertan y diga si es polinomial
+//inicio la bibloteca para calcular el tamaño de la lista
+#include<stdio.h>
+#include<string.h>
+
+void PalabraI(char*Palabra,int PosF)
+{
+	if(PosF<0)
+	{
+		return ;
+	}
+	else
+	{
+		int temp=Palabra[0];
+		Palabra[0]=Palabra[PosF];
+		Palabra[PosF]=temp;
+		PalabraI(Palabra+1,PosF-2);
+	}
+}
+
+int main()
+{
+	int size;
+	char palabra[25];
+	printf("Ingrese la palabra para invertir: ");
+	scanf("%s",palabra);
+	size=strlen(palabra);
+	PalabraI(palabra,size-1);
+	printf("La palabra invertida es: %s \n",palabra);
+	printf("%d",size);
+}
