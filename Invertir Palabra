@@ -1,33 +1,60 @@
 //Taller Vectores
 //recursividad de caracteres que se inviertan y diga si es polinomial
-//inicio la bibloteca string.h para calcular el tamaño de la lista
-
+//inicio la bibloteca para calcular el tamaño de la lista
 #include<stdio.h>
 #include<string.h>
-
+//hago una funcion para invertir palabra
 void PalabraI(char*Palabra,int PosF)
 {
-	if(PosF<0)
-	{
+	if(PosF<0){
 		return ;
-	}
-	else
-	{
+		}
+	else{
 		int temp=Palabra[0];
 		Palabra[0]=Palabra[PosF];
 		Palabra[PosF]=temp;
+		if(Palabra[0]==Palabra[PosF]){
+			int cont=0;
+			cont++;
+		}
 		PalabraI(Palabra+1,PosF-2);
 	}
 }
-
+//hago una funcion ver que la palabra se lea igual de izquierda a derecha y derecha a izquierda 
+int Palindrome(char* Palabra,int size)
+{
+	for(int i=0;i<size;i++){
+		char temp1=Palabra[i];
+		char temp2=Palabra[size];
+		if(temp1==temp2){
+			i++;
+			size++;
+		}
+		else{
+			return 0;
+		}
+	}
+	return 1;
+}
+//funcion principal
 int main()
 {
-	int size;
+	int size,Resultado;
 	char palabra[25];
 	printf("Ingrese la palabra para invertir: ");
 	scanf("%s",palabra);
+	
+	Resultado=Palindrome(palabra,size);
 	size=strlen(palabra);
 	PalabraI(palabra,size-1);
+	
 	printf("La palabra invertida es: %s \n",palabra);
-	printf("%d",size);
+	printf("y el size de la palabra es: %d\n",size);
+	
+	if(Resultado==1){
+		printf("La palabra es palindrome");
+	}
+	else{
+		printf("La palabra no es palindrome");
+	}
 }
