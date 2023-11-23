@@ -36,10 +36,23 @@ int Palindrome(char* Palabra,int size)
 	}
 	return 1;
 }
+//hago una funcion para que calcule el maximo comun divisor
+int MCD(int m,int n){
+	if(m%n==0)
+	{
+		return n;
+	}
+	else{
+		int temp=m%n;
+		m=n;
+		n=temp;
+		return MCD(m,n);
+	}
+}
 //funcion principal
 int main()
 {
-	int size,Resultado;
+	int size,Resultado,m,n;
 	char palabra[25];
 	printf("Ingrese la palabra para invertir: ");
 	scanf("%s",palabra);
@@ -52,9 +65,19 @@ int main()
 	printf("y el size de la palabra es: %d\n",size);
 	
 	if(Resultado==1){
-		printf("La palabra es palindrome");
+		printf("La palabra es palindrome\n");
 	}
 	else{
-		printf("La palabra no es palindrome");
+		printf("La palabra no es palindrome\n");
 	}
+	
+	printf("Ingrese el valor para m: ");
+	scanf("%d",&m);
+	printf("Ingrese el valor para n: ");
+	scanf("%d",&n);
+	
+	MCD(m,n);
+	Resultado=MCD(m,n);
+	
+	printf("%d",Resultado);
 }
